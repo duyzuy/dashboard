@@ -1,0 +1,38 @@
+.btn {
+  display: block;
+  padding: 10px 20px;
+  border-radius: 3px;
+  border: 1px solid #f1f1f1;
+  line-height: 1.2;
+  font-family: "GLX-Lato";
+  min-height: 40px;
+  cursor: pointer;
+  &.large {
+    min-height: 60px;
+  }
+  &.text {
+    background-color: transparent;
+    border: none;
+  }
+  &.primary {
+    background-color: #004688;
+    border-color: #004688;
+    color: #fff;
+  }
+  &.filled {
+    background-color: #f1f1f1;
+    &.primary {
+      background-color: #004688;
+      border-color: #004688;
+      color: #fff;
+    }
+  }
+  &.outlined {
+    background-color: transparent;
+    color: #fff;
+    &.primary {
+      border-color: #004688;
+      color: #004688;
+    }
+  }
+}

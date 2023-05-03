@@ -1,0 +1,23 @@
+.login-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .inner-page {
+    max-width: 450px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  input {
+    border-radius: 3px;
+  }
+}
+
+.form-wrapper {
+  width: 100%;
+  border: 1px solid #f1f1f1;
+  padding: 15px 25px;
+  border-radius: 5px;
+}
