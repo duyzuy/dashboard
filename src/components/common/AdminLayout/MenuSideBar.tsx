@@ -36,12 +36,7 @@ const MenuSideBar: React.FC = () => {
           background: "rgba(255, 255, 255, 0.2)",
         }}
       />
-      <Menu
-        theme="dark"
-        defaultSelectedKeys={["1"]}
-        mode="inline"
-        items={[MENU_ITEMS]}
-      />
+      <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline" items={[]} />
     </Sider>
   );
 };
