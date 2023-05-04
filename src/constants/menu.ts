@@ -3,7 +3,7 @@ export const menuItems = [
   {
     id: "dashboard",
     label: "Dashboard",
-    icon: () => {},
+    icon: <DashOutlined />,
     path: "/dashboard",
   },
 ];

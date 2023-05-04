@@ -13,19 +13,15 @@ const { Sider } = Layout;
 
 type MenuItem = Required<MenuProps>["items"][number];
 
-
-
 const MENU_ITEMS = [
   {
     label: "Dashboard",
     key: "dashboard",
     icon: <PieChartOutlined />,
-    onClick: () => window.location.
-  }
-]
+  },
+];
 const MenuSideBar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
-
 
   return (
     <Sider
