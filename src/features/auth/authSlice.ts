@@ -10,21 +10,21 @@ export const login = createAsyncThunk(
         password: password,
       },
     });
-
+    let token = "";
+    let errors = "";
     if (response.status === 200) {
       const { data } = response;
 
       localStorage.setItem(StorageKey.token, data.data.accessToken);
-      return {
-        token: data.data.accessToken,
-        errors: "",
-      };
+      token = data.data.accessToken;
     } else {
-      return {
-        token: "",
-        errors: response.data.message,
-      };
+      errors = response.data.message;
     }
+
+    return {
+      token,
+      errors,
+    };
   }
 );
 

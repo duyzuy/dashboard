@@ -3,8 +3,22 @@ import { LoginPage } from "../features/auth";
 import { NotFound, PrivateRoute } from "../components/common";
 import DashboardPage from "../features/dashboard/page/dashboard";
 import { AuthRoute } from "../components/common/AuthRoute";
+import AdminLayout from "../components/common/AdminLayout";
+import { StorageKey } from "../models/common";
 
 const PRIVATE_ROUTES = [];
+
+const ADMIN_ROUTES = [
+  {
+    path: "/dashboard",
+    element: <DashboardPage />,
+  },
+  {
+    path: "/posts",
+    element: <DashboardPage />,
+  },
+];
+
 const routes = [
   {
     path: "/auth",
@@ -28,12 +42,27 @@ const routes = [
     ],
   },
   {
-    path: "/admin/dashboard",
+    path: "/admin",
     element: (
       <PrivateRoute>
-        <DashboardPage />
+        <AdminLayout />
       </PrivateRoute>
     ),
+    loader: async () => {
+      const authToken = localStorage.getItem(StorageKey.token);
+      console.log(authToken);
+      return { data: "123" };
+    },
+    children: [
+      {
+        path: "dashboard",
+        element: <DashboardPage />,
+      },
+      {
+        path: "posts",
+        element: <>posts</>,
+      },
+    ],
   },
   {
     path: "*",
