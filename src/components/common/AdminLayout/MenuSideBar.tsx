@@ -13,35 +13,19 @@ const { Sider } = Layout;
 
 type MenuItem = Required<MenuProps>["items"][number];
 
-function getItem(
-  label: React.ReactNode,
-  key: React.Key,
-  icon?: React.ReactNode,
-  children?: MenuItem[]
-): MenuItem {
-  return {
-    key,
-    icon,
-    children,
-    label,
-  } satisfies MenuItem;
-}
 
-const items: MenuItem[] = [
-  getItem("Dashboard", "1", <PieChartOutlined />),
-  getItem("Option 2", "2", <DesktopOutlined />),
-  getItem("Bài viết", "sub1", <UserOutlined />, [
-    getItem("Da", "3"),
-    getItem("Bill", "4"),
-    getItem("Alex", "5"),
-  ]),
-];
 
+const MENU_ITEMS = [
+  {
+    label: "Dashboard",
+    key: "dashboard",
+    icon: <PieChartOutlined />,
+    onClick: () => window.location.
+  }
+]
 const MenuSideBar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
+
 
   return (
     <Sider
@@ -60,7 +44,7 @@ const MenuSideBar: React.FC = () => {
         theme="dark"
         defaultSelectedKeys={["1"]}
         mode="inline"
-        items={items}
+        items={[MENU_ITEMS]}
       />
     </Sider>
   );

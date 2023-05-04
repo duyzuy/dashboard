@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Layout, theme } from "antd";
 
 import { Outlet } from "react-router";
-import MenuSideBar from "./Sider";
+import MenuSideBar from "./MenuSideBar";
 import { ConfigProvider } from "antd";
 const { Header, Content, Footer, Sider } = Layout;
 

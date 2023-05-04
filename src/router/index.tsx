@@ -10,18 +10,18 @@ const PRIVATE_ROUTES = [];
 
 const ADMIN_ROUTES = [
   {
-    path: "/dashboard",
+    path: "dashboard",
     element: <DashboardPage />,
   },
   {
-    path: "/posts",
+    path: "posts",
     element: <DashboardPage />,
   },
 ];
 
 const routes = [
   {
-    path: "/auth",
+    path: "auth",
     children: [
       {
         path: "login",
@@ -42,7 +42,7 @@ const routes = [
     ],
   },
   {
-    path: "/admin",
+    path: "admin",
     element: (
       <PrivateRoute>
         <AdminLayout />
@@ -53,16 +53,7 @@ const routes = [
       console.log(authToken);
       return { data: "123" };
     },
-    children: [
-      {
-        path: "dashboard",
-        element: <DashboardPage />,
-      },
-      {
-        path: "posts",
-        element: <>posts</>,
-      },
-    ],
+    children: [...ADMIN_ROUTES],
   },
   {
     path: "*",
