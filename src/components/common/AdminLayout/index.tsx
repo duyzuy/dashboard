@@ -2,7 +2,7 @@ import React from "react";
 import { Layout } from "antd";
 
 import { Outlet } from "react-router";
-import MenuSideBar from "./Sider";
+import MenuSideBar from "./MenuSideBar";
 import { ConfigProvider } from "antd";
 
 const AdminLayout: React.FC = () => {
