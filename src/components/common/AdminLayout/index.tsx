@@ -1,17 +1,11 @@
-import React, { useState } from "react";
-import { Layout, theme } from "antd";
+import React from "react";
+import { Layout } from "antd";
 
 import { Outlet } from "react-router";
 import MenuSideBar from "./Sider";
 import { ConfigProvider } from "antd";
-const { Header, Content, Footer, Sider } = Layout;
 
 const AdminLayout: React.FC = () => {
-  const [collapsed, setCollapsed] = useState(false);
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
-  console.log(theme.useToken());
   return (
     <ConfigProvider
       theme={{
@@ -23,20 +17,7 @@ const AdminLayout: React.FC = () => {
       <Layout style={{ minHeight: "100vh" }}>
         <MenuSideBar />
         <Layout className="site-layout">
-          <Header style={{ padding: "0 16px", background: colorBgContainer }}>
-            <h1 className="page-header">Dashboard</h1>
-          </Header>
-          <Content style={{ margin: "0 16px" }} className="page-body">
-            <div
-              style={{
-                padding: 24,
-                minHeight: 360,
-                background: colorBgContainer,
-              }}
-            >
-              <Outlet />
-            </div>
-          </Content>
+          <Outlet />
         </Layout>
       </Layout>
     </ConfigProvider>

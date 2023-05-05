@@ -9,3 +9,60 @@ body {
 .forgot {
   font-size: 13px;
 }
+.dashboard-logo {
+  padding: 15px 5px;
+  display: block;
+  text-align: center;
+  img {
+    max-width: 140px;
+    width: 100%;
+  }
+}
+
+.profile-item {
+  color: #fff;
+  padding: 10px 5px;
+  .inner-item {
+    display: flex;
+    align-items: center;
+    background: rgb(245 245 245 / 15%);
+    padding: 10px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  span.anticon {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    display: inline-block;
+    background-color: #f54437;
+    border-radius: 50%;
+  }
+  .user-content {
+    flex: 1;
+    overflow: hidden;
+    margin-inline-start: 10px;
+    white-space: nowrap;
+    .user-name {
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+    .user-email {
+      font-size: 12px;
+    }
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+.ant-layout-sider-collapsed .profile-item {
+  .inner-item {
+    justify-content: center;
+  }
+  .user-content {
+    opacity: 0;
+    display: none;
+  }
+}

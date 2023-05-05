@@ -5,23 +5,34 @@ import DashboardPage from "../features/dashboard/page/dashboard";
 import { AuthRoute } from "../components/common/AuthRoute";
 import AdminLayout from "../components/common/AdminLayout";
 import { StorageKey } from "../models/common";
+import { PostListPage, UpdatePostPage, CreatePostPage } from "../features/post";
 
 const PRIVATE_ROUTES = [];
 
 const ADMIN_ROUTES = [
   {
-    path: "/dashboard",
+    path: "dashboard",
     element: <DashboardPage />,
   },
   {
-    path: "/posts",
-    element: <DashboardPage />,
+    path: "post",
+    element: <PostListPage />,
+    children: [
+      {
+        path: "create",
+        element: <CreatePostPage />,
+      },
+      {
+        path: ":id",
+        element: <UpdatePostPage />,
+      },
+    ],
   },
 ];
 
 const routes = [
   {
-    path: "/auth",
+    path: "auth",
     children: [
       {
         path: "login",
@@ -42,7 +53,7 @@ const routes = [
     ],
   },
   {
-    path: "/admin",
+    path: "admin",
     element: (
       <PrivateRoute>
         <AdminLayout />
@@ -53,16 +64,7 @@ const routes = [
       console.log(authToken);
       return { data: "123" };
     },
-    children: [
-      {
-        path: "dashboard",
-        element: <DashboardPage />,
-      },
-      {
-        path: "posts",
-        element: <>posts</>,
-      },
-    ],
+    children: [...ADMIN_ROUTES],
   },
   {
     path: "*",

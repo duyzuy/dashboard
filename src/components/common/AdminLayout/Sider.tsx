@@ -1,44 +1,49 @@
 import React, { useState } from "react";
-import {
-  DesktopOutlined,
-  FileOutlined,
-  PieChartOutlined,
-  TeamOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
+import { UserOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Layout, Menu, theme } from "antd";
-
+import { IconCmsBrand } from "../../../assets/icons";
+import { MENU_ITEMS } from "../../../constants/menu";
+import { useNavigate } from "react-router-dom";
 const { Sider } = Layout;
 
 type MenuItem = Required<MenuProps>["items"][number];
 
-function getItem(
-  label: React.ReactNode,
-  key: React.Key,
-  icon?: React.ReactNode,
-  children?: MenuItem[]
-): MenuItem {
+const getItem = ({
+  label,
+  key,
+  icon,
+  children,
+  onClick,
+}: {
+  label: React.ReactNode;
+  key: React.Key;
+  icon?: React.ReactNode;
+  children?: MenuItem[];
+  onClick?: () => void;
+}): MenuItem => {
   return {
     key,
     icon,
     children,
     label,
+    onClick,
   } satisfies MenuItem;
-}
-
-const items: MenuItem[] = [
-  getItem("Dashboard", "1", <PieChartOutlined />),
-  getItem("Option 2", "2", <DesktopOutlined />),
-  getItem("Bài viết", "sub1", <UserOutlined />, [
-    getItem("Da", "3"),
-    getItem("Bill", "4"),
-    getItem("Alex", "5"),
-  ]),
-];
+};
 
 const MenuSideBar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const navigate = useNavigate();
+
+  const items: MenuItem[] = MENU_ITEMS.map((item) =>
+    getItem({
+      label: item.label,
+      key: item.id,
+      icon: <item.icon />,
+      onClick: () => navigate(item.path),
+    })
+  );
+
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -49,16 +54,21 @@ const MenuSideBar: React.FC = () => {
       collapsed={collapsed}
       onCollapse={(value) => setCollapsed(value)}
     >
-      <div
-        style={{
-          height: 32,
-          margin: 16,
-          background: "rgba(255, 255, 255, 0.2)",
-        }}
-      />
+      <div className="dashboard-logo">
+        <img src={IconCmsBrand} alt="Brand Logo" />
+      </div>
+      <div className="ant-menu-item profile-item">
+        <div className="inner-item">
+          <UserOutlined />
+          <div className="user-content">
+            <p className="user-name">Nguyen van a</p>
+            <p className="user-email">nguyenvana@gmail.com</p>
+          </div>
+        </div>
+      </div>
       <Menu
         theme="dark"
-        defaultSelectedKeys={["1"]}
+        defaultSelectedKeys={["post"]}
         mode="inline"
         items={items}
       />
