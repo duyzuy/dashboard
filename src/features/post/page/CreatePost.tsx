@@ -1,8 +1,14 @@
 import React from "react";
-import { withAdminLayout } from "../../../Hocs/withAdminLayout";
+import PageHeader from "../../../components/PageHeader";
+import PageContent from "../../../components/PageContent";
 const CreatePost: React.FC<{ title?: string }> = ({ title }) => {
-  return <>Create a post</>;
+  return (
+    <>
+      <PageHeader title="Chỉnh sửa" />
+      <PageContent>
+        <div className="post list"></div>
+      </PageContent>
+    </>
+  );
 };
-export default withAdminLayout(CreatePost, {
-  title: "Tạo bài viết",
-});
+export default CreatePost;

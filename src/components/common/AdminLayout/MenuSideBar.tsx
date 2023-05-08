@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { UserOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Layout, Menu, theme } from "antd";
+import { Layout, Menu } from "antd";
 import { IconCmsBrand } from "../../../assets/icons";
 import { MENU_ITEMS } from "../../../constants/menu";
 import { useNavigate } from "react-router-dom";
@@ -43,10 +43,6 @@ const MenuSideBar: React.FC = () => {
       onClick: () => navigate(item.path),
     })
   );
-
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
 
   return (
     <Sider

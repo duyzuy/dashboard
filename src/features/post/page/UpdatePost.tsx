@@ -1,6 +1,14 @@
 import React from "react";
-import { withAdminLayout } from "../../../Hocs/withAdminLayout";
+import PageHeader from "../../../components/PageHeader";
+import PageContent from "../../../components/PageContent";
 const UpdatePost: React.FC = () => {
-  return <>this is a post</>;
+  return (
+    <>
+      <PageHeader title="Chỉnh sửa" />
+      <PageContent>
+        <div className="post list"></div>
+      </PageContent>
+    </>
+  );
 };
 export default UpdatePost;

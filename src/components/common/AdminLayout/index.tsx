@@ -11,6 +11,7 @@ const AdminLayout: React.FC = () => {
       theme={{
         token: {
           colorPrimary: "#F44336",
+          borderRadius: 3,
         },
       }}
     >

@@ -1,6 +1,6 @@
-import { Button } from "antd";
+import { Button as AntButton } from "antd";
 
-const CustomButton: React.FC<{
+const Button: React.FC<{
   children?: string;
   block?: boolean;
   danger?: boolean;
@@ -32,7 +32,7 @@ const CustomButton: React.FC<{
   onClick,
 }) => {
   return (
-    <Button
+    <AntButton
       block={block}
       danger={danger}
       disabled={disabled}
@@ -48,7 +48,7 @@ const CustomButton: React.FC<{
       onClick={onClick}
     >
       {children}
-    </Button>
+    </AntButton>
   );
 };
-export default CustomButton;
+export default Button;

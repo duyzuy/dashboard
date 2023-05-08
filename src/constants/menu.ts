@@ -2,6 +2,8 @@ import {
   PieChartOutlined,
   FileTextOutlined,
   TagsOutlined,
+  TranslationOutlined,
+  FolderOutlined,
 } from "@ant-design/icons";
 
 export const MENU_ITEMS = [
@@ -21,12 +23,18 @@ export const MENU_ITEMS = [
     id: "category",
     label: "Danh mục",
     path: "/admin/category",
-    icon: FileTextOutlined,
+    icon: FolderOutlined,
   },
   {
     id: "tag",
     label: "Tags",
     path: "/admin/tag",
     icon: TagsOutlined,
+  },
+  {
+    id: "language",
+    label: "Quản lý ngôn ngữ",
+    path: "/admin/language",
+    icon: TranslationOutlined,
   },
 ];

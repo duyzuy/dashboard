@@ -5,31 +5,8 @@ import DashboardPage from "../features/dashboard/page/dashboard";
 import { AuthRoute } from "../components/common/AuthRoute";
 import AdminLayout from "../components/common/AdminLayout";
 import { StorageKey } from "../models/common";
-import { PostListPage, UpdatePostPage, CreatePostPage } from "../features/post";
-
-const PRIVATE_ROUTES = [];
-
-const ADMIN_ROUTES = [
-  {
-    path: "dashboard",
-    element: <DashboardPage />,
-  },
-  {
-    path: "post",
-    element: <PostListPage />,
-    children: [
-      {
-        path: "create",
-        element: <CreatePostPage />,
-      },
-      {
-        path: ":id",
-        element: <UpdatePostPage />,
-      },
-    ],
-  },
-];
-
+import { postRoutes } from "../features/post";
+import { languageRoutes } from "../features/language";
 const routes = [
   {
     path: "auth",
@@ -64,7 +41,14 @@ const routes = [
       console.log(authToken);
       return { data: "123" };
     },
-    children: [...ADMIN_ROUTES],
+    children: [
+      {
+        path: "dashboard",
+        element: <DashboardPage />,
+      },
+      ...postRoutes,
+      ...languageRoutes,
+    ],
   },
   {
     path: "*",
